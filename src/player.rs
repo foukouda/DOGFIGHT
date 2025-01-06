@@ -21,7 +21,7 @@ impl Plugin for PlayerPlungin {
 fn spawn_player(mut commands: Commands, assets: Res<AssetServer>) {
     let player = (
         SceneRoot(assets.load("Player.glb#Scene0")),
-        Transform::from_xyz(0.0, 0.0, 0.0).with_rotation(Quat::from_euler(EulerRot::XYZ, 0.0,  -PI as f32 / 2.0,0.0)),
+        Transform::from_xyz(0.0, 500.0, 0.0).with_rotation(Quat::from_euler(EulerRot::XYZ, 0.0,  -PI as f32 / 2.0,0.0)),
         Damping {
             linear_damping: 5.0,
             ..default()
