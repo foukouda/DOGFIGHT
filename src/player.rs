@@ -1,3 +1,5 @@
+use std::f64::consts::PI;
+
 use bevy::prelude::*;
 use bevy_third_person_camera::*;
 use bevy_rapier3d::prelude::*;
@@ -19,7 +21,7 @@ impl Plugin for PlayerPlungin {
 fn spawn_player(mut commands: Commands, assets: Res<AssetServer>) {
     let player = (
         SceneRoot(assets.load("Player.glb#Scene0")),
-        Transform::from_xyz(0.0, 0.0, 0.0),
+        Transform::from_xyz(0.0, 0.0, 0.0).with_rotation(Quat::from_euler(EulerRot::XYZ, 0.0,  -PI as f32 / 2.0,0.0)),
         Damping {
             linear_damping: 5.0,
             ..default()
@@ -29,6 +31,8 @@ fn spawn_player(mut commands: Commands, assets: Res<AssetServer>) {
         ThirdPersonCameraTarget,
         Speed(4.0),
     );
+
+
 
     commands.spawn(player);
 }
@@ -45,30 +49,29 @@ fn player_movement_keyboard(
             let mut direction = Vec3::ZERO;
 
             if keys.pressed(KeyCode::KeyW) {
-                direction += cam.forward();
+                direction.x += 1.0;
             }
             if keys.pressed(KeyCode::KeyS) {
-                direction += cam.back();
+                direction.x -= 1.0;
             }
             if keys.pressed(KeyCode::KeyA) {
-                direction += cam.left();
+                direction.y += 1.0;
             }
             if keys.pressed(KeyCode::KeyD) {
-                direction += cam.right();
+                direction.y -= 1.0;
             }
 
-            // On ignore la composante Y pour ne pas faire décoller le joueur
             direction.y = 0.0;
 
-            // 2) Appliquer l'impulsion en fonction du temps
-            let movement = direction.normalize_or_zero() * player_speed.0 * time.delta_seconds();
+            let movement = direction.normalize_or_zero() * player_speed.0 * time.delta_secs();
             ext_impulse.impulse += movement;
 
             // 3) Faire pivoter le joueur dans la direction de la **caméra**, 
             //    plutôt que seulement la direction de déplacement
             let camera_forward_flat = Vec3::new(cam.forward().x, 0.0, cam.forward().z).normalize_or_zero();
+            let rotate_quat = Quat::from_rotation_y(-PI as f32 / 2.0);
             // oriente le joueur pour qu’il fasse face à l’axe « devant » de la caméra
-            player_transform.look_to(camera_forward_flat, Vec3::Y);
+            player_transform.look_to(rotate_quat.mul_vec3(camera_forward_flat) , Vec3::Y);
         }
     }
 }
