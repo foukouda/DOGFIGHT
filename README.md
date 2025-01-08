@@ -3,40 +3,47 @@
 ![DOGFIGHT](assets/image/DOGFIGHT.png)
 
 ## Introduction
-Welcome to **DOGFIGHT**, a 3D action game built using the Bevy engine. The game simulates an immersive environment where players control their aircraft, navigate dynamic worlds, and engage in aerial dogfights. This project integrates cutting-edge features such as a third-person camera, advanced physics, and modular game architecture.
+Welcome to **DOGFIGHT**, a thrilling 3D flight simulation and exploration game built with the Bevy engine. In **DOGFIGHT**, players control an aircraft, explore dynamic worlds, and engage in intense aerial combat. The game features multiple flight modes, realistic physics, and an immersive third-person camera.
+
+> **Note**: To play the game, you must place all game assets in the same directory as the executable.
 
 ---
 
 ## Features
 
-### 1. **Third-Person Camera**
-The camera system, implemented in `camera.rs`, provides:
-- Dynamic aim adjustment.
-- Zooming capabilities.
-- Smooth transitions and offsets for immersive gameplay.
+### 1. **Flight Modes**
+- **Arcade Mode**: Simplified controls for quick action and fun.
+- **Realistic Mode**: Advanced flight physics for a challenging experience.
+- Toggle modes by pressing the **Spacebar**.
 
-### 2. **Player Mechanics**
-Defined in `player.rs`, the player mechanics include:
-- Realistic player movement.
-- Integration with a 3D model (`Player.glb`).
-- Responsive controls for navigating and interacting with the world.
+### 2. **Third-Person Camera**
+Implemented in `camera.rs`, the camera system offers:
+- Dynamic aiming.
+- Adjustable zoom levels.
+- Smooth transitions and offsets for an immersive experience.
 
-### 3. **World Environment**
-Managed in `world.rs`, the game world features:
+### 3. **Player Mechanics**
+Defined in `player.rs`, the player features:
+- Realistic movement with acceleration and deceleration.
+- Interactive flight dynamics based on keyboard input and cursor position.
+- Customizable 3D player model (`Player.glb`).
+
+### 4. **World Environment**
+Built with `world.rs`, the environment includes:
 - A detailed 3D map (`map.glb`).
-- Lighting adjustments for dynamic and engaging visuals.
+- Dynamic lighting for visually stunning gameplay.
 
-### 4. **Physics Integration**
-Physics are powered by the `bevy_rapier3d` plugin, enabling realistic movement and interactions.
+### 5. **Physics Integration**
+Physics are powered by the `bevy_rapier3d` plugin, ensuring realistic movement and collisions.
 
-### 5. **Performance Monitoring**
-Using the `iyes_perf_ui` plugin, the game includes performance diagnostics such as FPS tracking for optimization insights.
+### 6. **Performance Monitoring**
+The game integrates the `iyes_perf_ui` plugin for real-time FPS tracking and diagnostics.
 
 ---
 
 ## File Structure
 
-```
+```plaintext
 DOGFIGHT/
 ├── src/
 │   ├── camera.rs          # Third-person camera system.
@@ -48,14 +55,10 @@ DOGFIGHT/
 │   ├── map.glb            # 3D map for the game world.
 │   └── Player.glb         # 3D player model.
 └── README.md              # Project documentation.
-```
-
----
-
 ## Prerequisites
 
-- Rust (latest stable version)
-- Bevy Engine (`bevy` crate)
+- **Rust** (latest stable version)
+- **Bevy Engine** (`bevy` crate)
 - Additional dependencies:
   - `bevy_third_person_camera`
   - `bevy_rapier3d`
@@ -69,39 +72,32 @@ DOGFIGHT/
    ```bash
    git clone https://github.com/your-username/DOGFIGHT.git
    cd DOGFIGHT
-   ```
-
-2. Install dependencies:
-   ```bash
-   cargo build
-   ```
-
-3. Run the game:
-   ```bash
-   cargo run
-   ```
-
----
 
 ## Controls
 
-- **W**: Move forward
-- **S**: Move backward
-- **A**: Turn left
-- **D**: Turn right
+- **W**: Increase speed
+- **S**: Decrease speed
+- **A**: Pitch up
+- **Q**: Pitch down
+- **Mouse**: Adjust aircraft direction based on cursor position
+- **Spacebar**: Toggle between Arcade and Realistic flight modes
 
 ---
 
 ## Contribution
-Contributions are welcome! Feel free to fork the repository and submit a pull request.
+
+Contributions are welcome! If you'd like to improve **DOGFIGHT**, fork the repository and submit a pull request.
 
 ---
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+
+This project is licensed under the **MIT License**.
 
 ---
 
 ## Acknowledgments
-- Special thanks to the creators of Bevy and its community for their incredible support.
-- Credits to the developers for their hard work on the **DOGFIGHT** project.
+
+- A special thanks to the Bevy community for their tools and guidance.
+
+---
