@@ -3,6 +3,7 @@ use bevy_rapier3d::prelude::*;
 use bevy_third_person_camera::*;
 use iyes_perf_ui::prelude::*;
 
+
 mod player;
 mod camera;
 mod world;
@@ -15,11 +16,11 @@ fn main() {
     App::new()
         .add_plugins((
             DefaultPlugins,
-            PlayerPlungin, 
-            CameraPlungin, 
-            WorldPlungin,
             ThirdPersonCameraPlugin,
             RapierPhysicsPlugin::<NoUserData>::default(),
+            CameraPlungin, 
+            PlayerPlungin, 
+            WorldPlungin,
         ))
         .add_plugins(bevy::diagnostic::FrameTimeDiagnosticsPlugin)
 
