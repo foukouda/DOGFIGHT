@@ -9,6 +9,8 @@ Welcome to **DOGFIGHT**, a thrilling 3D flight simulation and exploration game b
 
 ---
 
+![instruction](assets/image/instruction.png)
+
 ## Features
 
 ### 1. **Flight Modes**
