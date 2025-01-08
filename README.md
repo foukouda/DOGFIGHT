@@ -43,7 +43,7 @@ The game integrates the `iyes_perf_ui` plugin for real-time FPS tracking and dia
 
 ## File Structure
 
-```plaintext
+```
 DOGFIGHT/
 ├── src/
 │   ├── camera.rs          # Third-person camera system.
@@ -55,6 +55,7 @@ DOGFIGHT/
 │   ├── map.glb            # 3D map for the game world.
 │   └── Player.glb         # 3D player model.
 └── README.md              # Project documentation.
+```
 ## Prerequisites
 
 - **Rust** (latest stable version)
